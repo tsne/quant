@@ -26,7 +26,7 @@ call the `Report` function of the registry, or starting a reporting and attach t
 registry to it.
 
 A complete example calling `Registry.Report`:
-```
+```go
 package main
 
 import (
@@ -65,7 +65,7 @@ func readMemoryUsageInMB() float64 {
 ```
 
 A complete example using `Reporting`:
-```
+```go
 package main
 
 import (
