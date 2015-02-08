@@ -1,4 +1,7 @@
+[![GoDoc](https://godoc.org/github.com/thonit/quant?status.png)](https://godoc.org/github.com/thonit/quant)
+
 # quant
+
 quant is a simple metrics library for Go. It provides the following metric types to measure
 application statistics:
 * Counter
