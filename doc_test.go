@@ -9,7 +9,7 @@ func ExampleCounter() {
 	counter := registry.NewCounter("my-counter")
 
 	// use the counter
-	counter.Increment() // or timer.Decrement()
+	counter.Increment() // or counter.Decrement()
 
 	// write the counter value to stdout
 	registry.Report(StdoutReporter)
