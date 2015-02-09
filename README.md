@@ -17,8 +17,10 @@ go get -u github.com/thonit/quant
 The first step to use application metrics is to create a registry which acts as a
 collection of metrics. With this registry all supported metric types can be created.
 Each metric has its own unique name within the registry to identify the metric.
-A registry provides the function `Report` to write the snapshot of each registered
-metric to the specified reporters.
+A registry provides the function `Report` to write a snapshot of each registered
+metric to the specified reporters. The quant package provides the `StdoutReporter`
+which writes the snapshots to stdout. But it is also possible to provide a custom
+reporter just by implementing the `Reporter` interface.
 
 For a better metrics tracking snapshots of the metrics could be constantly written
 to a specific location (e.g. a database). This can be achieved in two ways: Periodically
@@ -45,6 +47,7 @@ func main() {
 		}
 	}()
 
+	// use the registry
 	counter := registry.NewCounter("my-counter")
 	timer := registry.NewTimer("my-timer", quant.Milliseconds)
 	registry.NewGaugeWithUnit("my-gauge", "MB", readMemoryUsageInMB)
@@ -115,7 +118,7 @@ no extra synchronization is needed. Examples for using a gauge: reporting the me
 consumption or a buffer's size.
 
 ### Timers
-A timer reports a series of time measured time durations. When starting a timer a stopwatch
+A timer reports a series of measured time durations. When starting a timer a stopwatch
 is created which immediately starts the measurement. Each stopwatch can report its measured
 duration to the underlying timer. So a series of durations is created which could be
 reported by the registry the timer belongs to. A stopwatch is not thread-safe and therefore
