@@ -12,7 +12,25 @@ type Reporter interface {
 	ReportTimers(registryName string, timers []*TimerSnapshot) error
 }
 
-// StdoutReporter is an Reporter implementation that simply writes the
+// NullReporter is a Reporter implementation that does nothing. Each function
+// simply returns a nil as an error.
+var NullReporter = nullReporter{}
+
+type nullReporter struct{}
+
+func (r nullReporter) ReportCounters(registryName string, counters []*CounterSnapshot) error {
+	return nil
+}
+
+func (r nullReporter) ReportGauges(registryName string, gauges []*GaugeSnapshot) error {
+	return nil
+}
+
+func (r nullReporter) ReportTimers(registryName string, timers []*TimerSnapshot) error {
+	return nil
+}
+
+// StdoutReporter is a Reporter implementation that simply writes the
 // metric snapshots to the standard output.
 var StdoutReporter = stdoutReporter{}
 
