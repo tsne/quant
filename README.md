@@ -18,9 +18,10 @@ The first step to use application metrics is to create a registry which acts as 
 collection of metrics. With this registry all supported metric types can be created.
 Each metric has its own unique name within the registry to identify the metric.
 A registry provides the function `Report` to write a snapshot of each registered
-metric to the specified reporters. The quant package provides the `StdoutReporter`
-which writes the snapshots to stdout. But it is also possible to provide a custom
-reporter just by implementing the `Reporter` interface.
+metric to the specified reporters. A `Reporter` writes the snapshot to the specified
+location in the specified format. The quant package provides the following reporters:
+* `NullReporter`: does not write any snapshot
+* `StdoutReporter`: writes the snapshots to the standard output
 
 For a better metrics tracking snapshots of the metrics could be constantly written
 to a specific location (e.g. a database). This can be achieved in two ways: Periodically
