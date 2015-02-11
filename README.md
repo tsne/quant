@@ -25,10 +25,10 @@ location in the specified format. The quant package provides the following repor
 
 For a better metrics tracking snapshots of the metrics could be constantly written
 to a specific location (e.g. a database). This can be achieved in two ways: Periodically
-call the `Report` function of the registry, or starting a reporting and attach the
+call the `Report` function of the registry, or starting a `Reporting` and attach the
 registry to it.
 
-A complete example calling `Registry.Report`:
+A complete example periodically calling `Registry.Report`:
 ```go
 package main
 
@@ -48,7 +48,7 @@ func main() {
 		}
 	}()
 
-	// use the registry
+	// use the registry:
 	counter := registry.NewCounter("my-counter")
 	timer := registry.NewTimer("my-timer", quant.Milliseconds)
 	registry.NewGaugeWithUnit("my-gauge", "MB", readMemoryUsageInMB)
@@ -86,7 +86,7 @@ func main() {
 	defer reporting.Stop()
 	reporting.Attach(registry)
 
-	// use the registry
+	// use the registry:
 	counter := registry.NewCounter("my-counter")
 	timer := registry.NewTimer("my-timer", quant.Milliseconds)
 	registry.NewGaugeWithUnit("my-gauge", "MB", readMemoryUsageInMB)
@@ -109,8 +109,8 @@ func readMemoryUsageInMB() float64 {
 ## Supported Metrics
 ### Counters
 A counter reports a single integral value. As the name says, it counts the occurence of
-specific events and provides a functions to increment, decrement and reset the counter value.
-These operations are thread-safe.
+specific events and provides functions to increment, decrement and reset the counter value.
+All of these operations are thread-safe.
 
 ### Gauges
 A gauge reports a single floating point value. The function providing this value is called
