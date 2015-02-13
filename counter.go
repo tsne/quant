@@ -33,6 +33,11 @@ func (c *Counter) Decrement() int64 {
 	return atomic.AddInt64(&c.value, -1)
 }
 
+// Add adds the specified delta to to counter.
+func (c *Counter) Add(delta int64) int64 {
+	return atomic.AddInt64(&c.value, delta)
+}
+
 // Reset sets the counter back to zero.
 func (c *Counter) Reset() {
 	atomic.StoreInt64(&c.value, 0)
