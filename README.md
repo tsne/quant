@@ -23,6 +23,9 @@ location in the specified format. The quant package provides the following repor
 * `NullReporter`: does not write any snapshot
 * `StdoutReporter`: writes the snapshots to the standard output
 
+To use a custom reporter, implement the [Reporter](https://godoc.org/github.com/thonit/quant#Reporter)
+interface.
+
 For a better metrics tracking snapshots of the metrics could be constantly written
 to a specific location (e.g. a database). This can be achieved in two ways: Periodically
 call the `Report` function of the registry, or starting a `Reporting` and attach the
@@ -124,3 +127,4 @@ is created which immediately starts the measurement. Each stopwatch can report i
 duration to the underlying timer. So a series of durations is created which could be
 reported by the registry the timer belongs to. A stopwatch is not thread-safe and therefore
 should not be used concurrently. A timer on the other hand is thread-safe.
+
