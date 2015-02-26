@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/thonit/quant?status.png)](https://godoc.org/github.com/thonit/quant)
+[![GoDoc](https://godoc.org/github.com/tsne/quant?status.png)](https://godoc.org/github.com/tsne/quant)
 
 # quant
 
@@ -23,7 +23,7 @@ location in the specified format. The quant package provides the following repor
 * `NullReporter`: does not write any snapshot
 * `StdoutReporter`: writes the snapshots to the standard output
 
-To use a custom reporter, implement the [Reporter](https://godoc.org/github.com/thonit/quant#Reporter)
+To use a custom reporter, implement the [Reporter](https://godoc.org/github.com/tsne/quant#Reporter)
 interface.
 
 For a better metrics tracking snapshots of the metrics could be constantly written
@@ -39,7 +39,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/thonit/quant"
+	"github.com/tnse/quant"
 )
 
 func main() {
@@ -79,7 +79,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/thonit/quant"
+	"github.com/tsne/quant"
 )
 
 func main() {
