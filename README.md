@@ -10,7 +10,7 @@ application statistics:
 
 Use `go get` to install or update the package:
 ```
-go get -u github.com/thonit/quant
+go get -u github.com/tsne/quant
 ```
 
 ## Getting Started
