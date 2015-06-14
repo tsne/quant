@@ -19,7 +19,7 @@ collection of metrics. With this registry all supported metric types can be crea
 Each metric has its own unique name within the registry to identify the metric.
 A registry provides the function `Report` to write a snapshot of each registered
 metric to the specified reporters. A `Reporter` writes the snapshot to the specified
-location in the specified format. The quant package provides the following reporters:
+location in the specified format. The quant package comes with the following reporters:
 * `NullReporter`: does not write any snapshot
 * `StdoutReporter`: writes the snapshots to the standard output
 
@@ -27,9 +27,9 @@ To use a custom reporter, implement the [Reporter](https://godoc.org/github.com/
 interface.
 
 For a better metrics tracking snapshots of the metrics could be constantly written
-to a specific location (e.g. a database). This can be achieved in two ways: Periodically
-call the `Report` function of the registry, or starting a `Reporting` and attach the
-registry to it.
+to a specific location (e.g. a database). This can be achieved in two ways: Either by
+calling the `Report` function of the registry periodically, or by starting a `Reporting`
+and attach the registry to it.
 
 A complete example periodically calling `Registry.Report`:
 ```go
@@ -116,9 +116,9 @@ specific events and provides functions to increment, decrement and reset the cou
 All of these operations are thread-safe.
 
 ### Gauges
-A gauge reports a single floating point value. The function providing this value is called
-gauge reader is specified by the application. It is wrapped in a thread-safe context, i.e.
-no extra synchronization is needed. Examples for using a gauge: reporting the memory
+A gauge reports a single floating point value. The function which provides this value is called
+gauge reader and is specified by the application. It is wrapped in a thread-safe context, i.e.
+no extra synchronization is necessary. Examples for using a gauge: reporting the memory
 consumption or a buffer's size.
 
 ### Timers
