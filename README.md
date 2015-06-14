@@ -39,7 +39,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/tnse/quant"
+	"github.com/tsne/quant"
 )
 
 func main() {
